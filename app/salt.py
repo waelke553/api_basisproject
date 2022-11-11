@@ -13,6 +13,28 @@ import os
 
 from fastapi import FastAPI, Query
 # uvicorn salt:app --host 0.0.0.0 --port 8000
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+    "https://localhost.tiangolo.com",
+    "http://127.0.0.1:5500",
+    "https://hashing-service-waelke553.cloud.okteto.net"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+
 
 
 file_name = "salt_file.json"
@@ -92,7 +114,7 @@ def decrypt(user_name, user_website, salt_password):
 
 
 
-app = FastAPI()
+
 
 # Get all user sites if the user exists.
 @app.get("/users/1/{user_name}")
