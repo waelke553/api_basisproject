@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+ hashing-service:
+  image: r0781669/api_basisproject
+  ports:
+    - "8000:8000"
