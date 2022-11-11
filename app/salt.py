@@ -22,7 +22,9 @@ origins = [
     "http://localhost:8080",
     "https://localhost.tiangolo.com",
     "http://127.0.0.1:5500",
-    "https://hashing-service-waelke553.cloud.okteto.net"
+    "https://hashing-service-waelke553.cloud.okteto.net",
+    "https://hashing-service-waelke553.cloud.okteto.net:8080",
+    "https://hashing-service-waelke553.cloud.okteto.net:5500"
 ]
 
 app.add_middleware(
