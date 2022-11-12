@@ -15,6 +15,10 @@ from fastapi import FastAPI, Query
 # uvicorn salt:app --host 0.0.0.0 --port 8000
 from fastapi.middleware.cors import CORSMiddleware
 
+from pydantic import BaseModel
+
+
+
 app = FastAPI()
 
 origins = [
@@ -35,6 +39,9 @@ app.add_middleware(
 )
 
 
+class out_user(BaseModel):
+    user_name: str
+    user_website: str
 
 
 
@@ -165,7 +172,7 @@ async def unhash_password_of_website(user_name: str | None = Query(default=None)
 @app.post("/users/3/")
 async def add_and_change_user_and_website(user_name: str | None = Query(default=None), user_website:str | None = Query(default=None), user_password: str | None = Query(default=None, min_length=6), key_password: str | None = Query(default=None, min_length=6)):
     
-    if user_name == None or user_name == '' or user_website == None or user_website == '' or user_password == None or key_password == None:
+    if user_name == None or user_name == '' or user_website == None or user_website == '' or user_password == None or key_password == None or key_password == '':
         return {
             "error": "On of your FIELDs is empty and this is not allowed."
         }
@@ -200,8 +207,13 @@ async def add_and_change_user_and_website(user_name: str | None = Query(default=
         file.write(json.dumps(existing_data,indent = 4))
         file.close()
 
-        return {
-                "user_name": user_name,
-                "website": user_website
-            } 
+        json1 = {
+                "user_name" : user_name,
+                "user_website" : user_website
+            }
+
+        def out_json(out_user: out_user):
+            return out_user
+
+        return out_json(json1) 
         #"Old user: " + user_name + " with the password of website: " + user_website + " has being encrypted."
