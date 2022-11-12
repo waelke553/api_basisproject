@@ -22,10 +22,8 @@ origins = [
     "http://localhost:8080",
     "https://localhost.tiangolo.com",
     "http://127.0.0.1:5500",
-    "https://hashing-service-waelke553.cloud.okteto.net",
-    "https://hashing-service-waelke553.cloud.okteto.net:8080",
-    "https://hashing-service-waelke553.cloud.okteto.net:5500",
-    "*"
+    "http://waelke553.github.io",
+    "https://waelke553.github.io"
 ]
 
 app.add_middleware(
@@ -120,43 +118,57 @@ def decrypt(user_name, user_website, salt_password):
 
 
 # Get all user sites if the user exists.
-@app.get("/users/1/{user_name}")
-async def get_user_websites(user_name: str):
+@app.get("/users/1/")
+async def get_user_websites(user_name: str | None = Query(default=None)):
     # ask for websites of the user.
-    for user in existing_data:
-        if user_name == user:
-            websites = []
-            for website in existing_data[user]:
-                websites.append(website)
-            return {
-                "user_name": user_name,
-                "websites": websites
-            }
-            # "The websites of the user " + user_name.upper() + " are " + websites[:-2]
-        else:
-            return {
-                "error": 'Did not find your user in the system.'
-            }
-
-# Get Decrypted passwords of user his website. 
-@app.get("/users/2/{user_name}/{user_website}/{key_password}")
-async def unhash_password_of_website(user_name: str, user_website:str, key_password: str):
-    # Decrypt passwords
-    if existing_data == {}:
-        # File is empty and you can't decrypt anything.
+    if user_name == None or user_name == '':
         return {
-            "error": "You haven't put any user in the system yet"
+            "error": "Your FIELD is empty and this is not allowed."
         }
     else:
-        return decrypt(user_name, user_website, key_password)  
+        for user in existing_data:
+            if user_name == user:
+                websites = []
+                for website in existing_data[user]:
+                    websites.append(website)
+                return {
+                    "user_name": user_name,
+                    "websites": websites
+                }
+                # "The websites of the user " + user_name.upper() + " are " + websites[:-2]
+            else:
+                return {
+                    "error": 'Did not find your user in the system.'
+                }
+
+# Get Decrypted passwords of user his website. 
+@app.get("/users/2/")
+async def unhash_password_of_website(user_name: str | None = Query(default=None), user_website:str | None = Query(default=None), key_password: str | None = Query(default=None)):
+    # Decrypt passwords
+    
+    if user_name == None or user_website == None or key_password == None or user_name == '' or user_website == '' or key_password == '':
+        return {
+            "error": "On of your FIELDs is empty and this is not allowed."
+        }
+    else:
+        if existing_data == {}:
+            # File is empty and you can't decrypt anything.
+            return {
+                "error": "You haven't put this user: " + user_name.upper() + " in the system yet"
+            }
+        else:
+            return decrypt(user_name, user_website, key_password)  
 
 
 # Add/change a user and website password.
-@app.post("/users/3/{user_name}/{user_website}/{user_password}/{key_password}")
-async def add_and_change_user_and_website(user_name: str, user_website:str, user_password: str | None = Query(default=None, min_length=6), key_password: str | None = Query(default=None, min_length=6)):
+# @app.post("/users/3/{user_name}/{user_website}/{user_password}/{key_password}")
+@app.post("/users/3/")
+async def add_and_change_user_and_website(user_name: str | None = Query(default=None), user_website:str | None = Query(default=None), user_password: str | None = Query(default=None, min_length=6), key_password: str | None = Query(default=None, min_length=6)):
     
-    if user_password == None or key_password == None:
-        return "Your password or key password is empty and this is not allowed."
+    if user_name == None or user_name == '' or user_website == None or user_website == '' or user_password == None or key_password == None:
+        return {
+            "error": "On of your FIELDs is empty and this is not allowed."
+        }
     else:
         # Encrypt passwords
         file = open(path_to_file, "w")
