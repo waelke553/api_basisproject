@@ -133,20 +133,27 @@ async def get_user_websites(user_name: str | None = Query(default=None)):
             "error": "Your FIELD is empty and this is not allowed."
         }
     else:
-        for user in existing_data:
-            if user_name == user:
-                websites = []
-                for website in existing_data[user]:
-                    websites.append(website)
-                return {
-                    "user_name": user_name,
-                    "websites": websites
-                }
-                # "The websites of the user " + user_name.upper() + " are " + websites[:-2]
-            else:
-                return {
-                    "error": 'Did not find your user in the system.'
-                }
+        if existing_data == {}:
+            return {
+                "error": "You haven't put this user: " + user_name.upper() + " in the system yet"
+            }
+        else:
+            for user in existing_data:
+                if user_name == user:
+                    websites = []
+
+                    for website in existing_data[user]:
+                        websites.append(website)
+                    return {
+                        "user_name": user_name,
+                        "websites": websites
+                    }
+                    # "The websites of the user " + user_name.upper() + " are " + websites[:-2]
+                else:
+                    return {
+                        "error": 'Did not find your user in the system.'
+                    }
+                
 
 # Get Decrypted passwords of user his website. 
 @app.get("/users/2/")
