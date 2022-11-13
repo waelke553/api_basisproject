@@ -1,25 +1,26 @@
 # api_basisproject
 
-Voor dit project heb ik gekozen om rond het thema hashing the werken.
-Hierbij is mijn inspiratie gekomen uit een programma/plug-in op google chrome. Waarbij je per site je wachtwoorden kunt encrypteren. En via 1 key-wachtwoord de geencrypteerde wachtwoorden kunt decrypteren.
+Voor dit project heb ik ervoor gekozen om rond het thema hashing te werken. Mijn inspiratie kwam van een programma/plug-in op google chrome. Waar je per site je wachtwoorden kunt versleutelen. En u kunt de versleutelde wachtwoorden ontsleutelen via 1 sleutelwachtwoord.
 
 
 # Project inhoud
 
-Maar bij mijn project heb ik gekozen dat een user zijn wachtwoord per site kan encrypteren via een key-wachtwoord. Dat hij mee geeft met de api en als de user zijn wachtwoord wilt decrypteren. Moet hij de juiste key-wachtwoord meegeven. En dan pas zal het echte wachtwoord voor die website worden gedecrypteerd.
+Maar in mijn project heb ik ervoor gekozen dat een gebruiker zijn wachtwoord per site kan versleutelen via een sleutelwachtwoord. De gebruiker moet wel zijn sluetelwachtwoord meegeven met de api om zijn wachtwoord te willen ontcijferen. 
+En alleen dan wordt het echte wachtwoord voor die website gedecodeerd.
 
 Daarnaast heb ik ook voor mijn api gekozen voor een deel "PATH" parameters te gebruiken. Maar grotendeels zijn "Query" parameters. Zodaning dat ik controle erop kan voeren.
 
-Ook heb ik een json file structuur aangemaakt om aan te tonen dat ik de leerstof die ik heb geleerd kon toepassen op dit project.
+Ik heb ook een json-bestandsstructuur ontwikkeld om aan te tonen dat ik de leerstof dat ik heb geleerd op dit project kon toepassen.
 
-Voor deze api heb ik ook een front-end aan gekoppeld om de api makkelijker te gebruiken. Ook heb ik gebruik gemaakt van gitlab om mijn html website te hosten. (Zie foto)
+Voor deze api heb ik ook een front-end aan gekoppeld om de api gemakkelijk te gebruiken. 
+Ik heb ook gitlab gebruikt om mijn html-website te hosten. (Zie foto)
 
 ![Front-end page](./img/front-end-page.png)
 
 
-# Python libraries
+# Python bibliotheken
 
-Python libraries die ik heb gebruikt voor dit project zie je hieronder.
+Python-bibliotheken die ik voor dit project heb gebruikt, worden hieronder weergegeven.
 
 1. Cryptography
 2. Json
@@ -27,35 +28,58 @@ Python libraries die ik heb gebruikt voor dit project zie je hieronder.
 4. Fastapi
 5. Pydantic
 
-"Cryptograpy" heb ik gebruikt om strings te encrypteren en dycrepteren. "Json" gebruik ik om een json file te lezen en te schrijven. "Os" is gebruikt om een file aan te maken op het systeem zou het nog niet bestaan. "Fastapi" is gebruikt om een api aan te maken. "Pydantic" heb ik gebruikt om classes aan te maken met het basemodel.
+Ik heb "cryptography" gebruikt om strings te coderen en te dycrepteren. Ik gebruik "json" om een json-bestand te lezen en te schrijven. "Os" wordt gebruikt om een bestand op het systeem aan te maken als het nog niet bestond. "Fastapi" wordt gebruikt om een api te maken. Ik heb "pydantic" gebruikt om klassen te maken met het basismodel.
 
 
 
 # Soorten API's
 
-Voor dit project hebt ik 2 'GET' api's waarvan eentje je de websites terug geeft van de user. En de tweede zal je het geencrypteerde wachtwoord geven als je de juiste key wachtwoord meegeeft.
 
-Als laatste heb ik ook een 'POST' api die je kan gebruiken om een nieuwe user met een webiste en wachtwoord en key wachtwoord kan meegeven. En mijn python code zal voor jou het opslaan in een json file.
+Voor dit project heb ik 2 'GET' api's waarvan eentje je de websites van de gebruiker teruggeeft. En de tweede geeft u het gecodeerde wachtwoord als u het juiste sleutelwachtwoord meegeeft opgeeft.
+
+Tot slot heb ik ook nog een 'POST' api waarmee je een nieuwe gebruiker kunt voorzien van een website en wachtwoord en key-wachtwoord. En mijn python-code zal het voor je opslaan in een json-bestand.
 
 ## Foto's
 
 ### Postman foto's
 
+API - Get Method - Fout melding
+
 ![1-get-fout](./img/1_fout_geen_user_gevonden.png)
+
+
+API - Get Method - Inorde 
 
 ![1-get-inorde](./img/1_inorde.png)
 
+
+API - Get Method - Fout melding 
+
 ![2-get-fout](./img/2_get_key_verkeerd.png)
+
+
+API - Get Method - Inorde 
 
 ![2-get-inorde](./img/2_get_inorde.png)
 
+
+API - Post Method - Fout melding (Vereiste waren niet okey (Query))
+
 ![3-post-fout](./img/3_post_foutmelding_wachtwoord_query.png)
+
+
+API - Post Method - Inorde 
 
 ![3-post-inorde](./img/3_post_inorde.png)
 
 ### Front-end foto's
 
+Front-end - API calls gemaakt waarvan de post method niet inorde was
+
 ![front-end-api-calls-fout](./img/front-end-api-calls.png)
+
+
+Front-end - API calls gemaakt waarvan alles inorde was
 
 ![front-end-api-calls-inorde](./img/front-end-api-calls-inorde.png)
 
@@ -103,6 +127,6 @@ Hosted front-end: [Github - Hosted Front-end Link](https://hashing-service-waelk
 
 Bijkomende commentaar, aanvullingen, enz:
 
-Bij mijn front-end kan je zien dat als je de input fields invult. Dat je gewoon de link met blote ogen kan zien. Ook als is je wachtwoord met bolletjes is dit niet bij de link.
+Bij mijn front-end kan je zien dat als je de invoervelden invult. Dat je de link gewoon met het blote oog kunt zien. Ook als is je wachtwoord met bolletjes is dit niet bij de link.
 
-Dus type NIET je gebruikte passwoorden!
+Typ dus NIET uw gebruikte wachtwoorden!
