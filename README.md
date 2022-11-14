@@ -122,7 +122,7 @@ Front-end - API calls gemaakt waarvan alles inorde was
 Github Repository: Hier zit u op
 Github Repository voor front-end: [GitHub Repo - Front-end Link](https://github.com/waelke553/api_basisproject_website)
 Hosted API: [Okteto - Hosted API Link](https://hashing-service-waelke553.cloud.okteto.net)
-Hosted front-end: [Github - Hosted Front-end Link](https://hashing-service-waelke553.cloud.okteto.net)
+Hosted front-end: [Github - Hosted Front-end Link](https://waelke553.github.io/api_basisproject_website/)
 
 
 Bijkomende commentaar, aanvullingen, enz:
