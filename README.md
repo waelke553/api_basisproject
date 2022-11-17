@@ -35,7 +35,7 @@ Ik heb "cryptography" gebruikt om strings te coderen en te dycrepteren. Ik gebru
 # Soorten API's
 
 
-Voor dit project heb ik 2 'GET' api's waarvan eentje je de websites van de gebruiker teruggeeft. En de tweede geeft u het gecodeerde wachtwoord als u het juiste sleutelwachtwoord meegeeft opgeeft.
+Voor dit project heb ik 2 'GET' api's waarvan eentje je de websites van de gebruiker teruggeeft. En de tweede geeft u het gecodeerde wachtwoord als u het juiste sleutelwachtwoord meegeeft.
 
 Tot slot heb ik ook nog een 'POST' api waarmee je een nieuwe gebruiker kunt voorzien van een website en wachtwoord en key-wachtwoord. En mijn python-code zal het voor je opslaan in een json-bestand.
 
