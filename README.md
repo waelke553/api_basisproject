@@ -35,7 +35,7 @@ Ik heb "cryptography" gebruikt om strings te coderen en te dycrepteren. Ik gebru
 # Soorten API's
 
 
-Voor dit project heb ik 2 'GET' api's waarvan eentje je de websites van de gebruiker teruggeeft. En de tweede geeft u het gecodeerde wachtwoord als u het juiste sleutelwachtwoord meegeeft opgeeft.
+Voor dit project heb ik 2 'GET' api's waarvan eentje je de websites van de gebruiker teruggeeft. En de tweede geeft u het gecodeerde wachtwoord als u het juiste sleutelwachtwoord meegeeft.
 
 Tot slot heb ik ook nog een 'POST' api waarmee je een nieuwe gebruiker kunt voorzien van een website en wachtwoord en key-wachtwoord. En mijn python-code zal het voor je opslaan in een json-bestand.
 
@@ -127,7 +127,7 @@ Front-end - API calls gemaakt waarvan alles inorde was
 Github Repository: Hier zit u op
 Github Repository voor front-end: [GitHub Repo - Front-end Link](https://github.com/waelke553/api_basisproject_website)
 Hosted API: [Okteto - Hosted API Link](https://hashing-service-waelke553.cloud.okteto.net)
-Hosted front-end: [Github - Hosted Front-end Link](https://hashing-service-waelke553.cloud.okteto.net)
+Hosted front-end: [Github - Hosted Front-end Link](https://waelke553.github.io/api_basisproject_website/)
 
 
 Bijkomende commentaar, aanvullingen, enz:
