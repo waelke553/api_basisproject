@@ -41,6 +41,11 @@ Tot slot heb ik ook nog een 'POST' api waarmee je een nieuwe gebruiker kunt voor
 
 ## Foto's
 
+### FastAPI docs foto
+
+![FastAPI docs](./img/fastapi-docs.png)
+
+
 ### Postman foto's
 
 API - Get Method - Fout melding
